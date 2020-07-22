@@ -1,0 +1,111 @@
+#sleep 3
+#xdotool key Return
+#sleep 3
+
+#xdotool mousemove 859 120 
+#sleep 1
+#xdotool click 1
+#xdotool type "how to use xdotool"
+#sleep 3
+
+#xdotool key Return
+
+
+##################
+
+while [ true ] 
+do 
+
+xdotool exec firefox www.duckduckgo.com 
+sleep 7
+xdotool keydown alt
+sleep 1
+xdotool key d
+xdotool keyup alt
+sleep 3
+xdotool type --delay 500  "www.duckduckgo.com/?q=using xdotool"
+sleep 3
+xdotool key Return
+sleep 7
+y=3
+for j in `seq $y`
+do 
+	xdotool key Down 
+	sleep 2
+	xdotool key --delay 100 ctrl+Return 
+	sleep 3
+done
+xdotool mousemove 405 325
+xdotool click 1
+sleep 4
+xdotool key Page_Down 
+sleep 2
+xdotool key ctrl+t
+sleep 3
+xdotool keydown alt
+sleep 1
+xdotool key d
+xdotool keyup alt
+sleep 2
+xdotool type --delay 500 "www.duckduckgo.com/?q=how to use ssh for remotely accessing linux server"
+sleep 1
+xdotool key Return 
+sleep 4
+xdotool key ctrl+Tab
+sleep 2 
+for i in `seq 6`
+do 
+
+	xdotool key --delay 1000 Page_Down
+done
+for i in `seq $y`						# changing tabs 
+do
+	xdotool keydown  ctrl
+	sleep 2
+	for z in `seq $i`
+	do 
+		xdotool key Tab
+		sleep 1
+	done
+	xdotool keyup ctrl
+	sleep 2
+	
+	for k in `seq 4`					# Moving page up and down (scrolling)  
+	do 
+		xdotool key --delay 1000 Down Down Page_Down Down Page_Down
+		sleep 2
+		xdotool key --delay 200 Up Page_Up Page_Up
+		sleep 3
+	done 
+	
+	## writing in terminal 
+	sleep 3
+	xdotool exec gnome-terminal
+	sleep 2
+	xdotool type --delay 500 "<<WORK"
+	xdotool key Return 
+	xdotool type --delay 400 "Hello there! I'm working from home. This is best way to work and I suggest You should do it too."
+	xdotool key Return 
+	xdotool type --delay 100 "WORK"
+	xdotool key Return
+	sleep 2
+	xdotool type --delay 800 "#apt-get install xdotool"
+	sleep 1
+	xdotool key Return 
+	sleep 3
+	xdotool key ctrl+d 
+	sleep 2
+
+
+		
+done
+for i in `seq `expr $y + 4``						# closing the tabs 
+do 
+	xdotool keydown  ctrl
+	sleep 1
+	xdotool key w
+	sleep 1
+	xdotool keyup ctrl  
+done
+
+done
