@@ -1,0 +1,55 @@
+#!/bin/bash
+firefox  cisco.com &
+sleep 15    
+for((i=0;i<700;i++)); do xdotool mousemove --polar 90  $i; done
+sleep 2
+for i in `seq 50`
+do
+   xdotool click 5
+   sleep 0.5
+done
+sleep 5
+for i in `seq 50`
+do
+   xdotool click 4
+   sleep 0.5
+done
+sleep 2
+for((i=0;i<700;i++))
+do
+       	xdotool mousemove --polar 270  $i
+done
+killall firefox
+sleep 5 
+gnome-terminal
+sleep 5
+xdotool key type hii" "
+sleep 1
+xdotool key type welcome" "
+sleep 2
+xdotool key type to" "
+sleep 2
+xdotool key type terminal" "
+sleep 2
+xdotool key type Guys" "
+sleep 2
+for i in `seq 100`
+do
+        xdotool key type I" "Love" "Linux" "
+	sleep 0.1
+done
+sleep 2
+for((i=1;i<1000;i++)); do xdotool getactivewindow windowmove $i $i+100; done
+sleep 2
+for((i=1000;i>0;i--)); do xdotool getactivewindow windowmove $i $i-100; done
+sleep 2
+for i in `seq 1 500`
+do 
+       	xdotool mousemove $i $i+1 
+done
+xdotool key alt+F4
+
+
+
+
+
