@@ -10,6 +10,42 @@
 
 #xdotool key Return
 
+#a function 
+#
+mousemove(){
+xl=0
+yl=0
+reqxl=$1
+reqyl=$2
+while [[ "$xl" -ne "$reqxl" || "$yl" -ne "$reqyl" ]]
+do
+yl=`xdotool getmouselocation |cut -d " " -f 2 | cut -d ":" -f 2`
+xl=`xdotool getmouselocation |cut -d " " -f 1 | cut -d ":" -f 2`
+
+echo $xl $yl
+if [[ "$xl" -lt $reqxl && "$yl" -lt $reqyl  ]]
+then xdotool mousemove $(( $xl + 1 )) $(( $yl + 1 ))
+elif [[ "$xl" -gt $reqxl && "$yl" -gt $reqyl  ]]
+then xdotool mousemove $(( $xl - 1 )) $(( $yl - 1 ))
+elif [[ "$xl" -lt $reqxl && "$yl" -gt $reqyl  ]]
+then xdotool mousemove $(( $xl + 1 )) $(( $yl - 1 ))
+elif [[ "$xl" -gt $reqxl && "$yl" -lt $reqyl  ]]
+then xdotool mousemove $(( $xl - 1 )) $(( $yl + 1 ))
+else
+        if [[ "$xl" -lt $reqxl ]]
+        then xdotool mousemove $(( $xl + 1 )) $yl
+        elif [[ "$yl" -lt $reqyl ]]
+        then xdotool mousemove $xl $(( $yl + 1 ))
+        elif [[ "$xl" -gt $reqxl ]]
+        then xdotool mousemove $(( $xl - 1 ))  $yl
+        elif [[ "$yl" -gt $reqyl ]]
+        then xdotool mousemove $xl $(( $yl - 1 ))
+        else
+                echo At right place
+        fi
+fi
+done
+}
 
 ##################
 
@@ -18,29 +54,52 @@ do
 
 xdotool exec firefox www.duckduckgo.com 
 sleep 7
-xdotool keydown alt
+xdotool key super+Up
+sleep 2
+mousemove 70 35				#resizing window 
+sleep 1					
+xdotool mousedown 1
+sleep 1
+mousemove 700 308
+sleep 1
+xdotool mouseup 1
+					######
+
+
+xdotool keydown alt			## entering url 
 sleep 1
 xdotool key d
 xdotool keyup alt
 sleep 3
-xdotool type --delay 500  "www.duckduckgo.com/?q=using xdotool"
+xdotool type --delay 700  "www.duckduckgo.com/?q=using xdotool"
 sleep 3
 xdotool key Return
 sleep 7
-y=3
-for j in `seq $y`
+					######
+
+
+xdotool mousedown 1			## again resizing window 
+sleep 1
+mousemove 500 20
+sleep 1
+xdotool mouseup 1			#####
+
+y=4					#Number of tabs
+for j in `seq $y`			## opening multiple tabs with different links 
 do 
 	xdotool key Down 
 	sleep 2
 	xdotool key --delay 100 ctrl+Return 
 	sleep 3
-done
-xdotool mousemove 405 325
+done					######
+
+xdotool mousemove 405 25
 xdotool click 1
 sleep 4
 xdotool key Page_Down 
 sleep 2
-xdotool key ctrl+t
+
+xdotool key ctrl+t			## opening a new tab 
 sleep 3
 xdotool keydown alt
 sleep 1
@@ -51,6 +110,14 @@ xdotool type --delay 500 "www.duckduckgo.com/?q=how to use ssh for remotely acce
 sleep 1
 xdotool key Return 
 sleep 4
+xdotool key --delay 2000 Down Down 
+sleep 1
+xdotool key Down
+sleep 2
+xdotool key --delay 100 ctrl+Return
+sleep 3
+xdotool key --delay 100 ctrl+w
+sleep 1
 xdotool key ctrl+Tab
 sleep 2 
 for i in `seq 6`
@@ -99,7 +166,7 @@ do
 
 		
 done
-for i in `seq `expr $y + 4``						# closing the tabs 
+for i in `seq `expr $y + 5``						# closing the tabs 
 do 
 	xdotool keydown  ctrl
 	sleep 1
