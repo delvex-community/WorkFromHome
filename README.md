@@ -1,2 +1,6 @@
 # WorkFromHome
-Objective: To Develop an automation script using Xdotools which can automate the movement of windows and many more
+Download script 
+Give execution permission
+  chmod +x workfromhome.sh
+Run Script 
+  ./workfromhome.sh
