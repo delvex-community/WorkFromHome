@@ -11,7 +11,7 @@ def scroll(howmuch, x, y, sleeptime):
     time.sleep(sleeptime)
 
 def makeSpiral():
-    distance = 200
+    distance = 100
     while distance > 0:
         pyautogui.drag(distance, 0, duration=0.5)   # move right
         distance -= 5
@@ -119,7 +119,9 @@ def writeCodeInNano():
     pyautogui.hotkey('ctrl', 'shift', 'w')
 
 all_actions = [writeCodeInNano, openTerminal1, checkGithub, runYoutube, openSpiralBrowserWindow]
-t_end = time.time() + 60 * int(input("Enter minutes to run : "))
+t_end = time.time() + 60 * int(input("Enter time in minutes to run : "))
 while time.time() < t_end:
-    random.choice(all_actions)()
-    time.sleep(2)
+    random.shuffle(all_actions)
+    for func in all_actions:
+        func()
+        time.sleep(2)
