@@ -11,7 +11,7 @@ def scroll(howmuch, x, y, sleeptime):
     time.sleep(sleeptime)
 
 def makeSpiral():
-    distance = 25
+    distance = 200
     while distance > 0:
         pyautogui.drag(distance, 0, duration=0.5)   # move right
         distance -= 5
@@ -102,7 +102,7 @@ def writeCodeInNano():
     subprocess.Popen(["gnome-terminal", "-e", "bash"])
     time.sleep(5)
     pyautogui.typewrite('nano wfh.txt\n', interval=0.2)
-    pyautogui.typewrite('Hello this is the workfrom home command made by RHYTHM BHIWANI\n', interval=0.1)
+    pyautogui.typewrite('Hello this is the workfromhome command made by RHYTHM BHIWANI\n', interval=0.1)
     pyautogui.typewrite('Check this out at https://github.com/rhythmbhiwani/workfromhome\n', interval=0.1)
     pyautogui.typewrite('Tools used:\n', interval=0.2)
     pyautogui.typewrite('Python with Selenium\n', interval=0.1)
