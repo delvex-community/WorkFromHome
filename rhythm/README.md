@@ -13,4 +13,4 @@ rhythmwfh
 * Enter the time for which you want to run the command for
 #### Now just enjoy
 ## Developer
-* Rhythm Bhiwani [GitHub](https://github.com/rhythmbhiwani/)
+* [Rhythm Bhiwani](https://github.com/rhythmbhiwani/)
