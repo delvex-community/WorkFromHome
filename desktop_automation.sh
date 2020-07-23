@@ -37,28 +37,7 @@ gedit_type_text()
 			xdotool windowminimize --sync $editorid
 			sleep 3
 			xdotool windowactivate --sync $editorid
-			xdotool type --delay 30 "Mere mehboob....Qayamat Hogi... aaj ruswa teri galiyo.... mein mohobbat hogi..... Mere Mehboob Qayamat Hogi
-Aaj Rusva Teri Galiyon Mein Mohabbat Hogi
-Meri Nazrein To Gila Karti Hain
-Tere Dil Ko Bhi Sanam Tujhse Shikayat Hogi
-Mere Mehboob...
-
-Teri Gali Maein Aata Sanam
-Nagma Wafa Ka Gaata Sanam
-Tujhse Suna Na Jaata Sanam
-Phir Aaj Idhar Aaya Hoon Magar Yeh Kehne Maein Deewana
-Khatm Bas Aaj Yeh dahshat Hogi
-Aaj Rusva Teri Galiyon Mein Mohabbat Hogi
-Mere Mehboob...
-
-Meri Tarah Tu Aahen Bhare
-Tu Bhi Kisise Pyar Kare
-Aur Rahe Voh Tujhse Parey
-Toone O Sanam Dhaye Hain Sitam To Yeh Tu Bhool Na Jaana
-
-Ki Na Tujhse Bhi Inayat Hogi
-Aaj Rusva Teri Galiyon Mein Mohabbat Hogi
-Mere Mehboob... " && xdotool key KP_Enter
+			xdotool type --delay 30 "Hey working From home over issue #1 " && xdotool key KP_Enter
 		fi
 		sleep 1
 	done
