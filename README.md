@@ -7,3 +7,4 @@ Objective: To Develop an automation script using xdotool command to mimic human 
 ```
 'wfh 3' will make it run for 3 hours
 ```
+ > Tested thoroughly on Ubuntu 20.04
