@@ -1,16 +1,5 @@
-#sleep 3
-#xdotool key Return
-#sleep 3
 
-#xdotool mousemove 859 120 
-#sleep 1
-#xdotool click 1
-#xdotool type "how to use xdotool"
-#sleep 3
-
-#xdotool key Return
-
-#a function 
+# mousemove function to move cursor 
 #
 mousemove(){
 xl=0
