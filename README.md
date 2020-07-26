@@ -1,7 +1,7 @@
 # WorkFromHome
 Objective: To Develop an automation script using xdotool command to mimic human behaviour
 ## Download "wfh" file from repository and move it to /usr/bin.
-## NOTE: Please make sure you have Google Chrome and nano text editor installed.
+## NOTE: Please make sure you have Google Chrome, xdotool and nano text editor installed.
 ## USAGE: ```wfh [OPTION]```
 #### Run command with a number to mention number of hours, for example:
 ```
