@@ -42,8 +42,11 @@ def runYoutube():
     driver.maximize_window()
     driver.get("https://www.youtube.com/watch?v=BosDrdC1IdA")
     time.sleep(3)
-    playbtn = driver.find_element_by_xpath('//*[@id="movie_player"]/div[4]/button')
-    playbtn.click()
+    try:
+        playbtn = driver.find_element_by_xpath('//*[@id="movie_player"]/div[4]/button')
+        playbtn.click()
+    except:
+        pass
     time.sleep(10)
     githublink = driver.find_element_by_xpath('//*[@id="description"]/yt-formatted-string/a')
     githublink.click()
@@ -51,7 +54,7 @@ def runYoutube():
     driver.close()
 
 def playDrum(driver):
-    for i in range(7):
+    for _ in range(7):
         driver.find_elements_by_class_name("l")[0].click()
         time.sleep(0.5)
         driver.find_elements_by_class_name("j")[0].click()
@@ -78,7 +81,7 @@ def checkGithub():
     scroll(-5, x=x//2, y=x//2, sleeptime=1)
     scroll(-20, x=x//2, y=x//2, sleeptime=1)
     scroll(50, x=x//2, y=x//2, sleeptime=1)
-    repo = driver.find_element_by_xpath('//*[@id="user-repositories-list"]/ul/li[1]/div[1]/div[1]/h3/a')
+    repo = driver.find_element_by_xpath('//*[@id="user-repositories-list"]/ul/li[2]/div[1]/div[1]/h3')
     repo.click()
     time.sleep(1)
     scroll(-3, x=x//2, y=x//2, sleeptime=1)
@@ -103,7 +106,7 @@ def writeCodeInNano():
     time.sleep(5)
     pyautogui.typewrite('nano wfh.txt\n', interval=0.2)
     pyautogui.typewrite('Hello this is the workfromhome command made by RHYTHM BHIWANI\n', interval=0.1)
-    pyautogui.typewrite('Check this out at https://github.com/rhythmbhiwani/workfromhome\n', interval=0.1)
+    pyautogui.typewrite('Check this out at https://github.com/AdHoc-Interns/WorkFromHomen', interval=0.1)
     pyautogui.typewrite('Tools used:\n', interval=0.2)
     pyautogui.typewrite('Python with Selenium\n', interval=0.1)
     pyautogui.typewrite('Bash for setup\n', interval=0.1)
@@ -119,9 +122,12 @@ def writeCodeInNano():
     pyautogui.hotkey('ctrl', 'shift', 'w')
 
 all_actions = [writeCodeInNano, openTerminal1, checkGithub, runYoutube, openSpiralBrowserWindow]
-t_end = time.time() + 60 * int(input("Enter time in minutes to run : "))
-while time.time() < t_end:
-    random.shuffle(all_actions)
-    for func in all_actions:
-        func()
-        time.sleep(2)
+try:
+    t_end = time.time() + 60 * int(input("Enter time in minutes to run : "))
+    while time.time() < t_end:
+        random.shuffle(all_actions)
+        for func in all_actions:
+            func()
+            time.sleep(2)
+except:
+    pass
